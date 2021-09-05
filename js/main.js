@@ -7,14 +7,14 @@ const output = document.querySelector("#output");
 function calculateProfitAndLoss(initial, quantity, current) {
     if(initial > current){
         let loss = (initial - current) * quantity;
-        let lossPercentage = (loss/initial) * 100;
+        let lossPercentage = ((loss/initial) * 100) / quantity;
         console.log(lossPercentage);
         console.log("loss");
         output.innerText = `Your Loss is ${loss} and Loss Percentage is ${lossPercentage}`;
     }
     else if(initial < current){
         let profit = (current - initial) * quantity;
-        let profitPercentage = (profit/initial) * 100;
+        let profitPercentage = ((profit/initial) * 100) / quantity;
         console.log(profitPercentage);
         console.log("profit");
         output.innerText = `Your Profit is ${profit} and Profit Percentage is ${profitPercentage}`;
