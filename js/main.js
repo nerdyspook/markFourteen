@@ -8,15 +8,15 @@ function calculateProfitAndLoss(initial, quantity, current) {
     if(initial > current){
         let loss = (initial - current) * quantity;
         let lossPercentage = ((loss/initial) * 100) / quantity;
-        console.log(lossPercentage);
-        console.log("loss");
+        // console.log(lossPercentage);
+        // console.log("loss");
         output.innerText = `Your Loss is ${loss.toFixed(2)} and Loss Percentage is ${lossPercentage.toFixed(2)}`;
     }
     else if(initial < current){
         let profit = (current - initial) * quantity;
         let profitPercentage = ((profit/initial) * 100) / quantity;
-        console.log(profitPercentage);
-        console.log("profit");
+        // console.log(profitPercentage);
+        // console.log("profit");
         output.innerText = `Your Profit is ${profit.toFixed(2)} and Profit Percentage is ${profitPercentage.toFixed(2)}`;
     }
     else{
@@ -29,7 +29,12 @@ function clickHandler(){
     let current = Number(currentPrice.value);
     let quantity = Number(stocksQuantity.value);
     
-    calculateProfitAndLoss(initial, quantity, current);
+    if(!initial || !current || !quantity) {
+        alert(`Please fill out all Fields`);
+    }
+    else {
+        calculateProfitAndLoss(initial, quantity, current);
+    }
 }
 
 checkButton.addEventListener("click", clickHandler);
